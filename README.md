@@ -41,7 +41,7 @@
 
 * 图片处理部分主要依据JCaptcha，在保留功能的情况下，进行重构。保留Glyphs。
 * 构建后的结构为BackgroundGenerator、BufferedImageRenderer、GlyphsDecorator、GlyphsVisitors。
-* 提供AbstractQuestionHandler\<Q\>，实现了QuestionHandler\<Q, BufferedImage\>接口，定义了宽度、高度、背景图片生成器、北京图片渲染器、最终图片渲染器。定义基本操作，由子类具体完成特效处理并返回新的BufferedImage。
+* 提供AbstractQuestionHandler\<Q\>，实现了QuestionHandler\<Q, BufferedImage\>接口，定义了宽度、高度、背景图片生成器、背景图片渲染器、最终图片渲染器。定义基本操作，由子类具体完成特效处理并返回新的BufferedImage。
 * 提供GlyphsQuestionHandler，AbstractQuestionHandler\<String\>子类，为JCaptcha的功能最终合成类。
 * 提供DeformedComposedQuestionHandler\<Q\>，实现了QuestionHandler\<Q, BufferedImage\>，提供高级处理，内部封装QuestionHandler\<Q, BufferedImage\>，主要实现添加边框和重新渲染功能。
 * 主要思路是去除其复杂化(各种自定义类型)、并实现各个部分都可以通过Spring配置的方式定义，提供无状态服务。
